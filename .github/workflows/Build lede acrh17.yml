@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build lede y1
+name: Build lede acrh17
 
 on:
   repository_dispatch:
