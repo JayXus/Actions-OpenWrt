@@ -36,7 +36,10 @@ sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba
 # sed -i 's#^.*KERNEL_PATCHVER:=.*$#KERNEL_PATCHVER:=5.15#' target/linux/x86/Makefile
 
 # 修复部分插件自启动脚本丢失可执行权限问题
-# sed -i '/exit 0/i\chmod +x /etc/init.d/*' package/lean/default-settings/files/zzz-default-settings
+sed -i '/exit 0/i\chmod +x /etc/init.d/*' package/lean/default-settings/files/zzz-default-settings
+
+#增加OpenClash
+svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 
 # 拉取软件包
 
