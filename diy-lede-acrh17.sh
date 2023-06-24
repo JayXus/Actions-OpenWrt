@@ -22,7 +22,7 @@
 # sed -i "s/OpenWrt /JayXus Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 1921.68.6.1）
-sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generate
 
 # Modify system hostname（FROM OpenWrt CHANGE TO OpenWrt-x86）
 # sed -i 's/OpenWrt/OpenWrt-x86/g' package/base-files/files/bin/config_generate
