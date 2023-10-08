@@ -30,7 +30,7 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 # Replace the default software source
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
 
-sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba4/files/smb.conf.template
+#sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba4/files/smb.conf.template
 
 # 更改内核版本
 # sed -i 's#^.*KERNEL_PATCHVER:=.*$#KERNEL_PATCHVER:=5.15#' target/linux/x86/Makefile
@@ -70,7 +70,7 @@ svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/l
 #rm -rf package/small-package/luci-app-godproxy
 #rm -rf package/small-package/luci-app-argon*
 #rm -rf package/small-package/luci-theme-argon*
-# rm -rf package/small-package/luci-app-amlogic
+#rm -rf package/small-package/luci-app-amlogic
 #rm -rf package/small-package/luci-app-unblockneteasemusic
 #rm -rf package/small-package/luci-app-netspeedtest
 #rm -rf package/small-package/upx-static
@@ -98,7 +98,7 @@ svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/l
 #rm -rf package/small-package/alist/patches/001-disable-delete-of-temp-directory-at-startup.patch
 
 # mosdns
-find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
-find ./ | grep Makefile | grep mosdns | xargs rm -f
-git clone https://github.com/sbwml/luci-app-mosdns package/diy/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/diy/geodata
+#find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+#find ./ | grep Makefile | grep mosdns | xargs rm -f
+#git clone https://github.com/sbwml/luci-app-mosdns package/diy/mosdns
+#git clone https://github.com/sbwml/v2ray-geodata package/diy/geodata
