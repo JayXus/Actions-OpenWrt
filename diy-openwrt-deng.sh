@@ -1,11 +1,13 @@
 #!/bin/bash
 
+rm -rf feeds/luci/applications/luci-app-dockerman
+
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config.git package/deng/luci-app-argon-config
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/deng/luci-theme-argon
 git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/deng/luci-app-unblockneteasemusic
 git clone --depth 1 https://github.com/sirpdboy/netspeedtest.git package/deng/netspeedtest
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/deng/passwall
-git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall package/deng/luci-app-passwall
+git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/deng/luci-app-passwall
+git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/deng/passwall-packages
 svn export https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/deng/aliyundrive-webdav
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/deng/luci-app-alist
 git clone --depth 1 https://github.com/kenzok78/luci-app-adguardhome package/deng/luci-app-adguardhome
@@ -26,7 +28,7 @@ svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/vsftpd-alt pa
 git clone --depth 1 https://github.com/tty228/luci-app-wechatpush.git package/deng/luci-app-wechatpush
 svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-gowebdav package/deng/luci-app-gowebdav
 svn export https://github.com/immortalwrt/packages/trunk/net/gowebdav package/deng/gowebdav
-
+git clone --depth 1 https://github.com/lisaac/luci-app-dockerman package/deng/luci-app-dockerman
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 10.10.10.1）
 sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
