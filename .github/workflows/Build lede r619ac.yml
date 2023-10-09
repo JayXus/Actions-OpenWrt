@@ -81,14 +81,13 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        cd openwrt
-        git reset --hard 3441bc5588a1a208f79a7bbc6fbeb90e987433a4
 
     - name: 加载自定义feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
+        git reset --hard b828e123c65bc6720ebf7984f0851a3590bf78f5
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: 更新feeds
@@ -109,6 +108,7 @@ jobs:
       id: package
       run: |
         cd openwrt
+        git reset --hard b828e123c65bc6720ebf7984f0851a3590bf78f5
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
