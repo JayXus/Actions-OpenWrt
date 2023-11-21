@@ -19,10 +19,10 @@
 # sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' feeds/luci/applications/luci-app-cpufreq/Makefile
 
 # Set DISTRIB_REVISION
-# sed -i "s/OpenWrt /JayXus Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/OpenWrt /JayXus Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 1921.68.6.1）
-sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 
 # Modify system hostname（FROM OpenWrt CHANGE TO OpenWrt-x86）
 # sed -i 's/OpenWrt/OpenWrt-x86/g' package/base-files/files/bin/config_generate
@@ -39,7 +39,8 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 sed -i '/exit 0/i\chmod +x /etc/init.d/*' package/lean/default-settings/files/zzz-default-settings
 
 #增加OpenClash
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+# svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+
 
 # 拉取软件包
 
@@ -59,24 +60,26 @@ svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/l
 
 # 删除重复包
 
-# rm -rf feeds/luci/applications/luci-app-netdata
-#rm -rf package/small-package/luci-app-netdata
-#rm -rf feeds/luci/themes/luci-theme-argon
-#rm -rf package/small-package/luci-app-openvpn-server
-#rm -rf package/small-package/openvpn-easy-rsa-whisky
-#rm -rf package/small-package/luci-app-wrtbwmon
-#rm -rf package/small-package/wrtbwmon
-#rm -rf package/small-package/luci-app-koolproxyR
-#rm -rf package/small-package/luci-app-godproxy
-#rm -rf package/small-package/luci-app-argon*
-#rm -rf package/small-package/luci-theme-argon*
-#rm -rf package/small-package/luci-app-amlogic
-#rm -rf package/small-package/luci-app-unblockneteasemusic
-#rm -rf package/small-package/luci-app-netspeedtest
-#rm -rf package/small-package/upx-static
-#rm -rf package/small-package/upx
-#rm -rf package/small-package/firewall*
-#rm -rf package/small-package/opkg
+rm -rf feeds/luci/applications/luci-app-netdata
+rm -rf package/small-package/luci-app-netdata
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf package/small-package/luci-app-openvpn-server
+rm -rf package/small-package/openvpn-easy-rsa-whisky
+rm -rf package/small-package/luci-app-wrtbwmon
+rm -rf package/small-package/wrtbwmon
+rm -rf package/small-package/luci-app-koolproxyR
+rm -rf package/small-package/luci-app-godproxy
+rm -rf package/small-package/luci-app-argon*
+rm -rf package/small-package/luci-theme-argon*
+rm -rf package/small-package/luci-app-amlogic
+rm -rf package/small-package/luci-app-unblockneteasemusic
+rm -rf package/small-package/luci-app-netspeedtest
+rm -rf package/small-package/upx-static
+rm -rf package/small-package/upx
+rm -rf package/small-package/firewall*
+rm -rf package/small-package/opkg
+
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
 
 # 其他调整
 #NAME=$"package/diy/luci-app-unblockneteasemusic/root/usr/share/unblockneteasemusic" && mkdir -p $NAME/core
